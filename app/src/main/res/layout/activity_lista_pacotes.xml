@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activies.lista_pacotes">
+    tools:context=".activies.ListaPacotesActivity">
 
     <ImageView
         android:id="@+id/imageView"

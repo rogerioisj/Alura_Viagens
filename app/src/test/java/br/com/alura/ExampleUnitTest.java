@@ -1,4 +1,4 @@
-package alura.com.br;
+package br.com.alura;
 
 import org.junit.Test;
 

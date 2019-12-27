@@ -3,4 +3,7 @@
     <string name="especiais">Especiais</string>
     <string name="pais">Brasil</string>
     <string name="conteudo_banner_inicial">Banner inicial dos pacotes</string>
+    <string name="title_activity_resumo_pacote">ResumoPacoteActivity</string>
+    <string name="preco_final">Preço final:</string>
+    <string name="descricao_imagem_resumo_destino">Imagem do local de destino</string>
 </resources>

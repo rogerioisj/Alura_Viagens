@@ -2,6 +2,7 @@ package br.com.alura.activies;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -36,6 +37,9 @@ public class ResumoPacoteActivity extends AppCompatActivity {
         defineDias(pacoteSaoPaulo);
         formataMoedaBrasileira(pacoteSaoPaulo);
         DataUtil.formataDataDuracao(pacoteSaoPaulo);
+
+        Intent intent = new Intent(this, PagamentoActivity.class);
+        startActivity(intent);
     }
 
     private void formataMoedaBrasileira(Pacote pacote) {

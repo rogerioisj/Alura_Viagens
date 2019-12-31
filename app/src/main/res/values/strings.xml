@@ -6,4 +6,5 @@
     <string name="title_activity_resumo_pacote">ResumoPacoteActivity</string>
     <string name="preco_final">Preço final:</string>
     <string name="descricao_imagem_resumo_destino">Imagem do local de destino</string>
+    <string name="realizar_pagamento">REALIZAR PAGAMENTO</string>
 </resources>

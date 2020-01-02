@@ -16,4 +16,9 @@
     <string name="pagamento_nome_cartao">Nome no Cartão</string>
     <string name="pagamento_botao_finalizar_compra">Finalizar Compra</string>
     <string name="pagamento_nome_cartao_digitos_permitidos">abcdefghijklmnopqrstuvwxyzçABCDEFGHIJKLMNOPQRSTUVWXYZÇ\u0020</string>
+    <string name="resumo_pagamento_parabens">Parabéns!</string>
+    <string name="resumo_pagamento_informativo">Compra realizada com sucesso :)</string>
+    <string name="resumo_pagamento_informativo2">Confira o resumo da compra:</string>
+    <string name="resumo_pagamento_banner_inicial">Banner inicial do resumo de pagamentos</string>
+    <string name="resumo_pagamento_imagem_destino">imagem de local de destino</string>
 </resources>

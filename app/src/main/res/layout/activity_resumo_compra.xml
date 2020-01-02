@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.alura.activies.ResumoCompraActivity">
+
+    <ImageView
+        android:id="@+id/res_pagamento_banner"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:contentDescription="@string/resumo_pagamento_banner_inicial"
+        android:src="@android:color/holo_orange_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/res_pagamento_parabens"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/res_pagamento_banner"
+        app:layout_constraintEnd_toEndOf="@+id/res_pagamento_banner"
+        app:layout_constraintTop_toTopOf="@+id/res_pagamento_banner"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:text="@string/resumo_pagamento_parabens"/>
+
+    <TextView
+        android:id="@+id/res_pagamento_compra_informacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintStart_toStartOf="@+id/res_pagamento_parabens"
+        app:layout_constraintEnd_toEndOf="@+id/res_pagamento_parabens"
+        app:layout_constraintTop_toBottomOf="@+id/res_pagamento_parabens"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:text="@string/resumo_pagamento_informativo"/>
+
+    <TextView
+        android:id="@+id/res_pagamento_compra_informacao2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/res_pagamento_parabens"
+        app:layout_constraintEnd_toEndOf="@+id/res_pagamento_parabens"
+        app:layout_constraintTop_toBottomOf="@+id/res_pagamento_banner"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:text="@string/resumo_pagamento_informativo2"/>
+
+    <ImageView
+        android:id="@+id/res_pagamento_imagem_destino"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/resumo_pagamento_imagem_destino"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="@+id/res_pagamento_banner"
+        app:layout_constraintStart_toStartOf="@+id/res_pagamento_banner"
+        app:layout_constraintTop_toBottomOf="@+id/res_pagamento_compra_informacao2"
+        tools:src="@drawable/belo_horizonte_mg" />
+
+    <TextView
+        android:id="@+id/res_pagamento_destino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/res_pagamento_imagem_destino"
+        app:layout_constraintTop_toBottomOf="@id/res_pagamento_imagem_destino"
+        android:layout_margin="8dp"
+        android:textSize="14sp"
+        tools:text="São Paulo"/>
+
+    <TextView
+        android:id="@+id/res_pagamento_duracao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/res_pagamento_destino"
+        app:layout_constraintTop_toBottomOf="@+id/res_pagamento_destino"
+        android:layout_marginTop="8dp"
+        android:textSize="14sp"
+        tools:text="08/12 - 10/12 de 2020"/>
+
+    <TextView
+        android:id="@+id/res_pagamento_preco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/res_pagamento_duracao"
+        app:layout_constraintTop_toBottomOf="@+id/res_pagamento_duracao"
+        android:layout_marginTop="8dp"
+        android:textSize="14sp"
+        tools:text="R$ 243,99"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

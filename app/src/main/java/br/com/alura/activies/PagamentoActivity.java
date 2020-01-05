@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
@@ -11,6 +13,8 @@ import java.math.BigDecimal;
 import br.com.alura.R;
 import br.com.alura.modelo.Pacote;
 import br.com.alura.util.MoedaUtil;
+
+import static br.com.alura.activies.ActivityConstantes.CHAVE_INTENT;
 
 public class PagamentoActivity extends AppCompatActivity {
 
@@ -22,13 +26,22 @@ public class PagamentoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pagamento);
         setTitle(APP_BAR);
 
-        Pacote pacoteSaoPaulo = new Pacote("São Paulo", "sao_paulo_sp", 2,
-                new BigDecimal("243.99"));
+        Intent pacoteRecebido = getIntent();
+        if(pacoteRecebido.hasExtra(CHAVE_INTENT)){
+            final Pacote pacote = (Pacote) pacoteRecebido.getSerializableExtra(CHAVE_INTENT);
 
-        formataMoedaBrasileira(pacoteSaoPaulo);
+            formataMoedaBrasileira(pacote);
 
-        Intent intent = new Intent(this, ResumoCompraActivity.class);
-        startActivity(intent);
+            Button botaoFinalizaCompra = findViewById(R.id.pagamento_botao_finaliza_pagamento);
+            botaoFinalizaCompra.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(PagamentoActivity.this, ResumoCompraActivity.class);
+                    intent.putExtra(CHAVE_INTENT, pacote);
+                    startActivity(intent);
+                }
+            });
+        }
     }
 
     private void formataMoedaBrasileira(Pacote pacoteSaoPaulo) {

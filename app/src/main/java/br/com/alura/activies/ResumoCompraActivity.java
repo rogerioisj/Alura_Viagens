@@ -2,6 +2,7 @@ package br.com.alura.activies;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,8 @@ import br.com.alura.util.DiasUtil;
 import br.com.alura.util.MoedaUtil;
 import br.com.alura.util.ResoucesUtil;
 
+import static br.com.alura.activies.ActivityConstantes.CHAVE_INTENT;
+
 public class ResumoCompraActivity extends AppCompatActivity {
 
     public static final String TITULO_APPBAR = "Resumo da Compra";
@@ -26,13 +29,24 @@ public class ResumoCompraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resumo_compra);
         setTitle(TITULO_APPBAR);
-        Pacote pacoteSaoPaulo = new Pacote("São Paulo", "sao_paulo_sp", 2,
-                new BigDecimal("243.99"));
 
-        defineLocal(pacoteSaoPaulo);
-        defineImagem(pacoteSaoPaulo);
-        defineDias(pacoteSaoPaulo);
-        definePreco(pacoteSaoPaulo);
+        Intent pacoteRecebido = getIntent();
+        verificaPacoteRecebido(pacoteRecebido);
+    }
+
+    private void verificaPacoteRecebido(Intent intent) {
+        if (intent.hasExtra(CHAVE_INTENT)){
+            Pacote pacote = (Pacote) intent.getSerializableExtra(CHAVE_INTENT);
+
+            configuraPacote(pacote);
+        }
+    }
+
+    private void configuraPacote(Pacote pacote) {
+        defineLocal(pacote);
+        defineImagem(pacote);
+        defineDias(pacote);
+        definePreco(pacote);
     }
 
     private void definePreco(Pacote pacote) {

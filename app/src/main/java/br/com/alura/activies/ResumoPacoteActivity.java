@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,6 +21,8 @@ import br.com.alura.util.DiasUtil;
 import br.com.alura.util.MoedaUtil;
 import br.com.alura.util.ResoucesUtil;
 
+import static br.com.alura.activies.ActivityConstantes.CHAVE_INTENT;
+
 public class ResumoPacoteActivity extends AppCompatActivity {
 
 
@@ -29,17 +32,38 @@ public class ResumoPacoteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_resumo_pacote);
         setTitle("Resumo do pacote");
 
-        Pacote pacoteSaoPaulo = new Pacote("São Paulo", "sao_paulo_sp", 2,
-                new BigDecimal("243.99"));
+        Intent pacoteRecebido = getIntent();
+        verificaPacoteRecebido(pacoteRecebido);
+    }
 
-        defineLocal(pacoteSaoPaulo);
-        defineImagem(pacoteSaoPaulo);
-        defineDias(pacoteSaoPaulo);
-        formataMoedaBrasileira(pacoteSaoPaulo);
-        DataUtil.formataDataDuracao(pacoteSaoPaulo);
+    private void verificaPacoteRecebido(Intent intent) {
+        if(intent.hasExtra(CHAVE_INTENT)){
 
-        Intent intent = new Intent(this, PagamentoActivity.class);
-        startActivity(intent);
+            final Pacote pacote = (Pacote) intent.getSerializableExtra(CHAVE_INTENT);
+
+            configuraPacote(pacote);
+            configuraBotao(pacote);
+        }
+    }
+
+    private void configuraPacote(Pacote pacote) {
+        defineLocal(pacote);
+        defineImagem(pacote);
+        defineDias(pacote);
+        formataMoedaBrasileira(pacote);
+        DataUtil.formataDataDuracao(pacote);
+    }
+
+    private void configuraBotao(final Pacote pacote) {
+        Button botaoRealizaPagamento = findViewById(R.id.resumo_pacote_botao_pagamento);
+        botaoRealizaPagamento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ResumoPacoteActivity.this, PagamentoActivity.class);
+                intent.putExtra(CHAVE_INTENT, pacote);
+                startActivity(intent);
+            }
+        });
     }
 
     private void formataMoedaBrasileira(Pacote pacote) {

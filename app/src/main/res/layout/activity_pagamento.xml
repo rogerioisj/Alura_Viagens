@@ -108,6 +108,7 @@
         android:importantForAutofill="no" />
 
     <Button
+        android:id="@+id/pagamento_botao_finaliza_pagamento"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/resumo_pacote_botao_arredondado"
